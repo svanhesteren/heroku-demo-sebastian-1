@@ -1,11 +1,11 @@
 <% content_for :title, "New todo" %>
 
-<h1>New todo</h1>
+<div class="mx-auto max-w-xl px-4 py-10">
+  <h1 class="mb-6 text-3xl font-bold text-slate-900">New todo</h1>
 
-<%= render "form", todo: @todo %>
+  <%= render "form", todo: @todo %>
 
-<br>
-
-<div>
-  <%= link_to "Back to todos", todos_path %>
+  <div class="mt-6">
+    <%= link_to "Back to todos", todos_path, class: "text-slate-600 hover:text-slate-900" %>
+  </div>
 </div>

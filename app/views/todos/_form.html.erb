@@ -1,9 +1,9 @@
 <%= form_with(model: todo) do |form| %>
   <% if todo.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(todo.errors.count, "error") %> prohibited this todo from being saved:</h2>
+    <div class="mb-6 rounded bg-red-50 px-4 py-3 text-red-700">
+      <h2 class="font-semibold"><%= pluralize(todo.errors.count, "error") %> prohibited this todo from being saved:</h2>
 
-      <ul>
+      <ul class="mt-2 list-inside list-disc">
         <% todo.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="mb-4">
+    <%= form.label :title, class: "mb-1 block font-medium text-slate-700" %>
+    <%= form.text_field :title, class: "w-full rounded border border-slate-300 px-3 py-2 focus:border-slate-900 focus:outline-none", autofocus: true %>
   </div>
 
-  <div>
-    <%= form.label :status, style: "display: block" %>
-    <%= form.text_field :status %>
+  <div class="mb-6">
+    <%= form.label :status, class: "mb-1 block font-medium text-slate-700" %>
+    <%= form.select :status, Todo::STATUSES.map { |status| [status.humanize, status] }, {}, class: "w-full rounded border border-slate-300 px-3 py-2 focus:border-slate-900 focus:outline-none" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="flex items-center gap-3">
+    <%= form.submit class: "rounded bg-slate-900 px-4 py-2 font-medium text-white hover:bg-slate-700" %>
   </div>
 <% end %>

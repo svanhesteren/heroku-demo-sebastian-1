@@ -10,6 +10,11 @@ class TodosControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get root" do
+    get root_url
+    assert_response :success
+  end
+
   test "should get new" do
     get new_todo_url
     assert_response :success

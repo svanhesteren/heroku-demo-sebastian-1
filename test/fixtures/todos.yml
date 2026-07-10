@@ -2,8 +2,8 @@
 
 one:
   title: MyString
-  status: MyString
+  status: pending
 
 two:
   title: MyString
-  status: MyString
+  status: done
