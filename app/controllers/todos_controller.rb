@@ -8,6 +8,7 @@ class TodosController < ApplicationController
 
   # GET /todos/1 or /todos/1.json
   def show
+    Appsignal.increment_counter("Shown todos", 1)
   end
 
   # GET /todos/new
@@ -25,6 +26,7 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       if @todo.save
+        Appsignal.increment_counter("Created todo", 1)
         format.html { redirect_to @todo, notice: "Todo was successfully created." }
         format.json { render :show, status: :created, location: @todo }
       else
@@ -38,6 +40,7 @@ class TodosController < ApplicationController
   def update
     respond_to do |format|
       if @todo.update(todo_params)
+        Appsignal.increment_counter("Updated todo", 1)
         format.html { redirect_to @todo, notice: "Todo was successfully updated.", status: :see_other }
         format.json { render :show, status: :ok, location: @todo }
       else
