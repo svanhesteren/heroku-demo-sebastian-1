@@ -1,6 +1,22 @@
-# config/appsignal.rb
+# AppSignal Ruby gem configuration
+# Visit our documentation for a list of all available configuration options.
+# https://docs.appsignal.com/ruby/configuration/options.html
 Appsignal.configure do |config|
-  config.activate_if_environment(:staging, :production)
-  config.name = "heroku-demo-sebastian-1"
-  config.push_api_key = "07937b3d-7a5a-4db5-ae52-824b8ccb8b3c"
+  config.activate_if_environment("development", "production")
+  config.name = "HerokuDemoSebastian1"
+  # The application's Push API key
+  # We recommend removing this line and setting this option with the
+  # APPSIGNAL_PUSH_API_KEY environment variable instead.
+  # https://docs.appsignal.com/ruby/configuration/options.html#option-push_api_key
+  config.push_api_key = "01330431-0aa6-4646-8150-d63b8891de5e"
+
+  # Configure actions that should not be monitored by AppSignal.
+  # For more information see our docs:
+  # https://docs.appsignal.com/ruby/configuration/ignore-actions.html
+  # config.ignore_actions << "ApplicationController#isup"
+
+  # Configure errors that should not be recorded by AppSignal.
+  # For more information see our docs:
+  # https://docs.appsignal.com/ruby/configuration/ignore-errors.html
+  # config.ignore_errors << "MyCustomError"
 end
